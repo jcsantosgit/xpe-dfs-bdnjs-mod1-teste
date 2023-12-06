@@ -1,0 +1,16 @@
+{
+  "name": "xpe",
+  "version": "1.0.0",
+  "description": "projeto para pratica do ensino",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "git",
+    "node",
+    "npm"
+  ],
+  "author": "Joao Santos",
+  "license": "MIT"
+}
