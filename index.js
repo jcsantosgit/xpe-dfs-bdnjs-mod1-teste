@@ -1,35 +1,35 @@
-/* 
-    *****************************************
-    Trabalhando com File System usando Async
-    *****************************************
-*/
-import {promises as fs} from 'fs';
+import readLine from "readline";
 
-//init();
-writeReadJson();
+const rl = readLine.createInterface({
+    input: process.stdin,
+    output: process.stdout
+});
 
-async function init() {
-    try {        
-        await fs.writeFile('arquivo-teste.txt', "usando o Async no File System");
-        await fs.appendFile('arquivo-teste.txt', "\nAppend usando o Async no File System");
-        const conteudo = await fs.readFile("arquivo-teste.txt", "utf-8");
-        console.log(conteudo);
-    } catch (error) {
-        console.log(error);
-    }
-}
+lerConsole();
 
-async function writeReadJson(){
-    try {
-        const lista = ['Gol', 'Palio', 'Uno'];
-        const obj = {
-            carros: lista
-        };
+function lerConsole() {
     
-        await fs.writeFile('arquivo-teste.txt', JSON.stringify(obj));
-        const conteudo = await fs.readFile('arquivo-teste.txt', 'utf-8');
-        console.log(conteudo);
-    } catch (error) {
-        console.log(error);
-    }
+    const numbers = [];
+    
+    rl.question('Digite um número: ', numero => {
+        
+        if(isNaN(numero) || parseInt(numero) === -1) {
+            rl.close();
+            return;
+        }
+    
+        const multiple =  parseInt(numero);
+
+        for (let n = 0; n <= 1000; n++) {
+
+            if(n % multiple == 0) {
+                numbers.push(n);
+            }
+
+        }
+
+        console.log(numbers);
+
+        lerConsole();
+    });
 }
