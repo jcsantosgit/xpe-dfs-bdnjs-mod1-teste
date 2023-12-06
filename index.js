@@ -5,7 +5,8 @@
 */
 import {promises as fs} from 'fs';
 
-init();
+//init();
+writeReadJson();
 
 async function init() {
     try {        
@@ -18,3 +19,17 @@ async function init() {
     }
 }
 
+async function writeReadJson(){
+    try {
+        const lista = ['Gol', 'Palio', 'Uno'];
+        const obj = {
+            carros: lista
+        };
+    
+        await fs.writeFile('arquivo-teste.txt', JSON.stringify(obj));
+        const conteudo = await fs.readFile('arquivo-teste.txt', 'utf-8');
+        console.log(conteudo);
+    } catch (error) {
+        console.log(error);
+    }
+}
