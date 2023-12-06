@@ -1,16 +1,20 @@
 /* 
     *****************************************
-    Trabalhando com promises no File System
+    Trabalhando com File System usando Async
+    *****************************************
 */
-import {promises as fs} from 'fs'; // alias para precisar usar o promises.readFile..
+import {promises as fs} from 'fs';
 
-fs.writeFile("arquivo-teste.txt", "usando o método promises")
-    .then(()=>{
-        fs.readFile("arquivo-teste.txt", "utf-8")
-        .then(resp=>{
-            console.log(resp);
-        }).catch(err=>console.log(err));
-    })
-    .catch(err=>{
-        console.log(err);
-    });
+init();
+
+async function init() {
+    try {        
+        await fs.writeFile('arquivo-teste.txt', "usando o Async no File System");
+        await fs.appendFile('arquivo-teste.txt', "\nAppend usando o Async no File System");
+        const conteudo = await fs.readFile("arquivo-teste.txt", "utf-8");
+        console.log(conteudo);
+    } catch (error) {
+        console.log(error);
+    }
+}
+
