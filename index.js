@@ -1,17 +1,16 @@
 /* 
     *****************************************
-    Usando File Async para evitar funções de
-    call Back.
+    Trabalhando com promises no File System
 */
-import fs from 'fs';
+import {promises as fs} from 'fs'; // alias para precisar usar o promises.readFile..
 
-try {
-    console.log("1");
-    fs.writeFileSync("arquivo-teste.txt", "Usando Sync\n");
-    console.log("2");
-    const readed = fs.readFileSync('arquivo-teste.txt', 'utf-8');
-    console.log(readed);
-    console.log("3")
-} catch (error) {
-    console.log(error);
-}
+fs.writeFile("arquivo-teste.txt", "usando o método promises")
+    .then(()=>{
+        fs.readFile("arquivo-teste.txt", "utf-8")
+        .then(resp=>{
+            console.log(resp);
+        }).catch(err=>console.log(err));
+    })
+    .catch(err=>{
+        console.log(err);
+    });

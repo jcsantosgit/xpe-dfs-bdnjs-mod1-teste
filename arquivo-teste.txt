@@ -1,1 +1,1 @@
-Usando Sync
+usando o método promises
