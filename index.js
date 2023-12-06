@@ -1,9 +1,8 @@
 import fs from 'fs';
 
-fs.readFile('arquivo-teste.txt', "utf-8", function(err, data){
-    if(err) {
-        console.log(err);
-    } else {
-        console.log(data);
-    }
+fs.appendFile('arquivo-teste.txt', "\nteste append", function(err){
+    if(err) 
+        console.log(err)
+    else 
+        console.log("arquivo gravado com sucesso");
 });
