@@ -1,9 +1,9 @@
 import fs from 'fs';
 
-fs.writeFile('arquito-teste.txt', "bla bla bla", function(err){
+fs.readFile('arquivo-teste.txt', "utf-8", function(err, data){
     if(err) {
         console.log(err);
     } else {
-        console.log("Arquivo criado com sucess!");
+        console.log(data);
     }
 });
