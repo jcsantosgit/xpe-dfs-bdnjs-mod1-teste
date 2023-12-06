@@ -12,5 +12,6 @@
     "npm"
   ],
   "author": "Joao Santos",
-  "license": "MIT"
+  "license": "MIT",
+  "type": "module"
 }

@@ -10,7 +10,7 @@ function ehMultiplo(x,y) {
     return x%y == 0;
 }
 
-module.exports = {soma, subtracao};
+export default {soma, subtracao, ehMultiplo};
 
 /* 
     Me parece que nessa versão do Node JS 20.8.0
