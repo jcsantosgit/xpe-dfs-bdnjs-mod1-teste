@@ -1,11 +1,17 @@
-import http from 'http';
+import express from 'express';
 
-http.createServer((req, res)=>{
-    if((req.method === 'GET') && (req.url === "/teste")){
-        res.write("rota GET /teste executado com sucesso");
-    } else {
-        res.write("Hello cruel world");
-    }
-    res.statusCode = 200;
-    res.end();
-}).listen(8080);
+const app = express();
+
+// Rotas:
+app.get("/", (req, res)=>{
+    res.send("GET: Hello world com express!");
+});
+
+app.post("/", (req, res)=>{
+    res.send("POST: Hello world com express")
+});
+
+// Subindo o servidor:
+app.listen(8080, () => {
+    console.log('Server OnLine..');
+});
