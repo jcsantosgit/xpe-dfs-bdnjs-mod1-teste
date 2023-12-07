@@ -1,5 +1,11 @@
-import ev from "./events.js";
+import http from 'http';
 
-ev.emit("MeuCodigo", "chamando o events.js");
-
-ev.emit("MeuCodigo", "novamente chamando o events.js");
+http.createServer((req, res)=>{
+    if((req.method === 'GET') && (req.url === "/teste")){
+        res.write("rota GET /teste executado com sucesso");
+    } else {
+        res.write("Hello cruel world");
+    }
+    res.statusCode = 200;
+    res.end();
+}).listen(8080);

@@ -4,7 +4,8 @@
   "description": "projeto para pratica do ensino",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon index.js"
   },
   "keywords": [
     "git",
@@ -13,5 +14,8 @@
   ],
   "author": "Joao Santos",
   "license": "MIT",
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "nodemon": "^3.0.2"
+  }
 }
