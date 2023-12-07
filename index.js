@@ -15,6 +15,7 @@ function lerConsole() {
         
         if(isNaN(numero) || parseInt(numero) === -1) {
             rl.close();
+            console.log('Você saiu do programa!');
             return;
         }
     
