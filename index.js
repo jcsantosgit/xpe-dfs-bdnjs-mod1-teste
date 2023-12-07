@@ -1,36 +1,5 @@
-import readLine from "readline";
+import ev from "./events.js";
 
-const rl = readLine.createInterface({
-    input: process.stdin,
-    output: process.stdout
-});
+ev.emit("MeuCodigo", "chamando o events.js");
 
-lerConsole();
-
-function lerConsole() {
-    
-    const numbers = [];
-    
-    rl.question('Digite um número: ', numero => {
-        
-        if(isNaN(numero) || parseInt(numero) === -1) {
-            rl.close();
-            console.log('Você saiu do programa!');
-            return;
-        }
-    
-        const multiple =  parseInt(numero);
-
-        for (let n = 0; n <= 1000; n++) {
-
-            if(n % multiple == 0) {
-                numbers.push(n);
-            }
-
-        }
-
-        console.log(numbers);
-
-        lerConsole();
-    });
-}
+ev.emit("MeuCodigo", "novamente chamando o events.js");
