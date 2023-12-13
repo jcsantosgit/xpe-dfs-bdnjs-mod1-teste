@@ -65,6 +65,20 @@ function callback3(req, res){
     res.end();
 }
 
+app.route('/route-test')
+    .get((req, res) => { 
+        console.log('route GET'); 
+        res.send('route GET');
+    })
+    .post((req, res) => { 
+        console.log('route POST'); 
+        res.send('route POST');
+    })
+    .delete((req, res) => { 
+        console.log('route DELETE');
+        res.send('route DELETE');
+    });
+
 // Subindo o servidor:
 app.listen(8080, () => {
     console.log('Server OnLine..');
