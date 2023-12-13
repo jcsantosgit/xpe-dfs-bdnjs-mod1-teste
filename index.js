@@ -38,6 +38,33 @@ app.get('/compra', (req, res)=>{
     res.send(req.query);
 });
 
+// Multiple handlers.
+app.get('/handlers', (req, res, nex)=>{
+    console.log('Callback 1');
+    res.send('Trabalhando com hanlders');
+    nex()
+}, (req, res)=>{
+    console.log('Callback 2');
+    res.end();
+});
+
+const callback1 = (req, res, next) => {
+    console.log('Callback 1');
+    next();
+}
+
+const callback2 = (req, res, next) => {
+    console.log('Callback 2');
+    next();
+}
+
+app.get('/mult-handlers', [callback1, callback2, callback3] );
+
+function callback3(req, res){
+    console.log('Callback 3');
+    res.end();
+}
+
 // Subindo o servidor:
 app.listen(8080, () => {
     console.log('Server OnLine..');
